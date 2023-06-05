@@ -21,8 +21,11 @@ export async function load(ev) {
 		curr.push({ id, title });
 
 		const opts = {};
+		let expiry = new Date();
+		expiry.setFullYear(expiry.getFullYear() + 1);
+
 		opts['path'] = '/';
-		opts['expires'] = new Date(new Date().getFullYear() + 1).toUTCString();
+		opts['expires'] = expiry;
 
 		ev.cookies.set('KNOWN_LIST', JSON.stringify(curr), opts);
 	}
