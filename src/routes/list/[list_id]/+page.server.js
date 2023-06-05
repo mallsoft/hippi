@@ -22,7 +22,7 @@ export async function load(ev) {
 
 		const opts = {};
 		opts['path'] = '/';
-		opts['expires'] = new Date();
+		opts['expires'] = new Date(new Date().getFullYear() + 1).toUTCString();
 
 		ev.cookies.set('KNOWN_LIST', JSON.stringify(curr), opts);
 	}
