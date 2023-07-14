@@ -1,7 +1,11 @@
 <script>
-	import SubmitHidden from '$lib/forms/SubmitHidden.svelte';
-
+	import ThumbList from '$lib/ThumbList.svelte';
+	import CreateItem from '$lib/forms/CreateItem.svelte';
 	export let data;
+
+	const supported = {
+		thumbs: ThumbList
+	};
 </script>
 
 <title>{data.list?.title}</title>
@@ -11,50 +15,23 @@
 		<a href="/">{data.list?.title}</a>
 	</h1>
 
-	<form method="POST" action="?/createItem" autocomplete="off">
-		<input placeholder="Create new item" type="text" name="text" pattern=".+" required />
-		<input type="submit" value="+" />
-	</form>
+	{#if data.list?.type !== '' && supported[data.list?.type]}
+		<CreateItem />
 
-	<ul class="listylist">
-		{#each data.list?.items as { text, state, id }}
-			<li>
-				<div>
-					<SubmitHidden
-						action="deleteItem"
-						hiddenData={{ id }}
-						submitText="✖"
-						submitTitle="Delete item: {text}"
-					/>
-				</div>
-				<p>{text}</p>
-				<div>
-					{#each ['👍', '👎'] as emoji}
-						<div class:curr={state === emoji}>
-							{#if state !== emoji}
-								<SubmitHidden
-									action="setEmoji"
-									hiddenData={{ id, emoji }}
-									submitText={emoji}
-									submitTitle="Set {emoji} on: {text}"
-								/>
-							{:else}
-								<SubmitHidden
-									action="setEmoji"
-									hiddenData={{ id, emoji: '' }}
-									submitText={emoji}
-									submitTitle="Unset {emoji} on: {text}"
-								/>
-							{/if}
-						</div>
-					{/each}
-				</div>
-			</li>
-		{/each}
-	</ul>
+		<svelte:component this={supported[data.list?.type]} items={data.list?.items} />
+	{:else}
+		<span>List error</span>
+		<pre>{JSON.stringify(data.list, null, 2)}</pre>
+	{/if}
 </article>
 
 <style lang="scss">
+	pre {
+		font-size: 0.8rem;
+		background: gray;
+		color: white;
+		padding: 1rem;
+	}
 	article {
 		h1 {
 			font-size: 6rem;
@@ -64,53 +41,5 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-	}
-
-	form {
-		input {
-			padding: 0.5rem;
-			background-color: $color-paper-secondary;
-			color: $color-pen-secondary;
-		}
-	}
-
-	ul {
-		margin: 2rem 0;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		li {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 0.5rem;
-
-			& > * {
-				padding: 0.5rem;
-			}
-
-			& > p {
-				width: 100%;
-			}
-
-			& > div {
-				&:last-of-type {
-					display: flex;
-					gap: 0.5rem;
-					& > div {
-						opacity: 0.5;
-						filter: grayscale(1);
-						transform: scale(0.9);
-
-						&.curr,
-						&:hover {
-							opacity: 1;
-							filter: unset;
-							transform: unset;
-						}
-					}
-				}
-			}
-		}
 	}
 </style>

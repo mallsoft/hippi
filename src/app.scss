@@ -33,16 +33,31 @@ h3 {
 	margin: 0;
 }
 
-button,
-input[type='submit'] {
-	cursor: pointer;
-}
+form {
+	input {
+		border: none;
+		font-family: inherit;
+		font-size: inherit;
 
-input {
-	border: none;
-	color: inherit;
-	background-color: inherit;
-	font-family: inherit;
-	font-size: inherit;
-	padding: 0;
+		padding: 0.5rem;
+		background-color: $color-paper-secondary;
+		color: $color-pen-secondary;
+
+		&[type='submit'],
+		&[type='button'],
+		&[type='reset'] {
+			cursor: pointer;
+		}
+	}
+
+	select {
+		padding: 0.5rem;
+		border: none;
+		background: none;
+		background-color: $color-paper-secondary;
+	}
+
+	fieldset {
+		border: none;
+	}
 }

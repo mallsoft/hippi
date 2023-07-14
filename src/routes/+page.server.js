@@ -17,6 +17,7 @@ export const actions = {
 	createList: async (ev) => {
 		const data = await ev.request.formData();
 		const title = data.get('title');
+		const type = data.get('type');
 
 		console.log(new Date().toISOString(), 'List create new...', title);
 
@@ -26,7 +27,7 @@ export const actions = {
 			method: 'POST',
 			body: JSON.stringify({
 				title,
-				type: 'thumbs' //??
+				type: type || 'thumbs'
 			}),
 			headers: {
 				'content-type': 'application/json'
@@ -43,4 +44,21 @@ export const actions = {
 
 		throw redirect(303, `/list/${list.id}`);
 	}
+	/*
+
+	deleteList: async (ev) => {
+		const data = await ev.request.formData();
+
+		const listId = data.get('id');
+
+		console.log(new Date().toISOString(), 'List delete... ', listId);
+
+		await ev.fetch(`${env.PATHY_MC_PATH}/lists/${listId}`, {
+			method: 'DELETE'
+		});
+
+		return { success: true };
+	}
+	
+ */
 };
