@@ -33,7 +33,7 @@ export async function load(ev) {
 	list.items.sort((a, b) => {
 		const sumA = a.id + a.sortIndex;
 		const sumB = b.id + b.sortIndex;
-		return sumA - sumB;
+		return sumB - sumA;
 	});
 
 	return { list };
