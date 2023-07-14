@@ -2,16 +2,15 @@
 	import CreateList from '$lib/forms/CreateList.svelte';
 
 	export let data;
-	let known = data.known;
 </script>
 
 <title>Chippi</title>
 
 <article>
 	<CreateList />
-	{#if known.length}
+	{#if data.known?.length}
 		<ul class="listylist">
-			{#each known as { title, id }}
+			{#each data.known as { title, id }}
 				<li><a href="/list/{id}">{title}</a></li>
 			{/each}
 		</ul>

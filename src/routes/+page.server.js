@@ -9,7 +9,7 @@ export async function load(ev) {
 		known = JSON.parse(data);
 	}
 
-	return { known };
+	return { known: known.reverse() };
 }
 
 /** @type {import('./$types').Actions} */
