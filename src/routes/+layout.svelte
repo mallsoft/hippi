@@ -2,18 +2,17 @@
 	import '../app.scss';
 </script>
 
-<main>
+<div>
 	<slot />
-</main>
+</div>
 
 <style lang="scss">
-	main {
+	div {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 1rem;
-		padding: 4rem 8px;
-
+		padding: 2rem 8px;
 		font-size: 2rem;
 	}
 </style>

@@ -4,9 +4,12 @@
 	export let data;
 </script>
 
-<title>Chippi</title>
+<svelte:head>
+	<title>Chippi</title>
+</svelte:head>
 
-<article>
+<main>
+	<img src="/favicon.svg" alt="" />
 	<CreateList />
 	{#if data.known?.length}
 		<ul class="listylist">
@@ -15,18 +18,18 @@
 			{/each}
 		</ul>
 	{/if}
-</article>
+</main>
 
 <style lang="scss">
-	article {
-		width: 100%;
-		max-width: $block-width;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+	main {
+		@include baseMain;
 	}
 
 	li a {
-		font-size: 6rem;
+		font-size: 4rem;
+	}
+
+	img {
+		height: 2rem;
 	}
 </style>

@@ -16,5 +16,13 @@
 <style lang="scss">
 	form {
 		display: contents;
+
+		input[type='submit'] {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			aspect-ratio: 1;
+			line-height: 0;
+		}
 	}
 </style>

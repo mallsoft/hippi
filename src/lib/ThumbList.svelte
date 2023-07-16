@@ -42,7 +42,7 @@
 
 <style lang="scss">
 	ul {
-		margin: 2rem 0;
+		margin: 1rem 0;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
@@ -51,12 +51,8 @@
 			align-items: center;
 			justify-content: space-between;
 			gap: 0.5rem;
-
-			& > * {
-				padding: 0.5rem;
-			}
-
 			& > p {
+				padding: 0.5rem;
 				width: 100%;
 				line-break: anywhere;
 			}

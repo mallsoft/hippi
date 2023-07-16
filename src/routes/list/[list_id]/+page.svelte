@@ -8,9 +8,11 @@
 	};
 </script>
 
-<title>{data.list?.title}</title>
+<svelte:head>
+	<title>{data.list?.title}</title>
+</svelte:head>
 
-<article>
+<main>
 	<h1>
 		<a href="/">{data.list?.title}</a>
 	</h1>
@@ -23,7 +25,7 @@
 		<span>List error</span>
 		<pre>{JSON.stringify(data.list, null, 2)}</pre>
 	{/if}
-</article>
+</main>
 
 <style lang="scss">
 	pre {
@@ -32,14 +34,7 @@
 		color: white;
 		padding: 1rem;
 	}
-	article {
-		h1 {
-			font-size: 6rem;
-		}
-		width: 100%;
-		max-width: $block-width;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+	main {
+		@include baseMain;
 	}
 </style>
