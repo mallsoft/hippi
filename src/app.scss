@@ -11,6 +11,12 @@ body {
 	background-color: $color-paper-primary;
 }
 
+html,
+body,
+body > div {
+	height: 100%;
+}
+
 ul,
 ol,
 li {
@@ -58,6 +64,11 @@ form {
 		&[type='button'],
 		&[type='reset'] {
 			cursor: pointer;
+		}
+
+		&::placeholder {
+			opacity: 0.75;
+			color: currentColor;
 		}
 	}
 

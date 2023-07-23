@@ -11,8 +11,13 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
 		gap: 1rem;
-		padding: 2rem 8px;
+
 		font-size: 2rem;
+		padding: 2rem 8px;
+
+		box-sizing: border-box;
+		min-height: 100%;
 	}
 </style>

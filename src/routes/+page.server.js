@@ -66,7 +66,7 @@ export const actions = {
 			ev.cookies.set('KNOWN_LIST', JSON.stringify(curr), opts);
 		}
 
-		return { success: true, known: curr };
+		return { known: curr };
 	}
 	/*
 

@@ -1,7 +1,7 @@
 import { env } from '$env/dynamic/private';
 import { error } from '@sveltejs/kit';
 
-/** @type {import('./$types').PageLoad} */
+/** @type {import('./$types').LayoutLoad} */
 export async function load(ev) {
 	const res = await ev.fetch(`${env.PATHY_MC_PATH}/lists/${ev.params.list_id}`);
 
@@ -55,7 +55,7 @@ export const actions = {
 			}
 		});
 
-		return { success: true };
+		return {};
 	},
 	deleteItem: async (ev) => {
 		const data = await ev.request.formData();
@@ -68,7 +68,7 @@ export const actions = {
 			method: 'DELETE'
 		});
 
-		return { success: true };
+		return {};
 	},
 	setEmoji: async (ev) => {
 		const data = await ev.request.formData();
@@ -86,6 +86,6 @@ export const actions = {
 			}
 		});
 
-		return { success: true };
+		return {};
 	}
 };
