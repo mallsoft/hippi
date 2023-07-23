@@ -6,7 +6,7 @@
 	<!-- <select name="type">
 		<option selected value="thumbs">👍👎</option>
 	</select> -->
-	<input placeholder="Create new list" type="text" name="title" pattern=".+" required />
+	<input size="2" placeholder="Create new list" type="text" name="title" pattern=".+" required />
 	<input type="submit" value="+" />
 </form>
 

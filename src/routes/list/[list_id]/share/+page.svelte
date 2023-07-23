@@ -26,23 +26,32 @@
 		width: 100%;
 		height: 100%;
 
-		backdrop-filter: blur(2px) brightness(0.4);
+		backdrop-filter: blur(4px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
 		& > :global(svg) {
+			transform-origin: center;
+			animation: in $transition-speed-out forwards $easing-jello;
+
 			max-width: min(95vw, 300px);
 			max-height: min(95vh, 300px);
 
 			border-radius: 4px;
-			box-shadow: 1rem 1rem 1rem -0.3rem rgba(0, 0, 0, 0.3);
+			box-shadow: 2rem 2rem 2rem -0.2rem rgba(0, 0, 0, 0.25);
 		}
 		& > :global(svg > path:first-of-type) {
-			fill: $color-pen-primary;
+			fill: $color-paper-secondary;
 		}
 		& > :global(svg > path:last-of-type) {
-			stroke: $color-paper-primary;
+			stroke: $color-pen-secondary;
+		}
+	}
+
+	@keyframes in {
+		from {
+			transform: translateY(-3rem) scale(0.7);
 		}
 	}
 </style>

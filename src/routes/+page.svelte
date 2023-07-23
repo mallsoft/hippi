@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Chippi</title>
+	<title>Hippi</title>
 </svelte:head>
 
 <main>
@@ -21,7 +21,7 @@
 						<SubmitHidden
 							action="forgetList"
 							hiddenData={{ id }}
-							submitText="🗲"
+							submitText="F"
 							submitTitle="Forget list: {title}"
 						/>
 					</div>

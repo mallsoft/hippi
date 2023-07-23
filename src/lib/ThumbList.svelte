@@ -61,15 +61,11 @@
 				display: flex;
 				gap: 0.5rem;
 				& > div {
-					opacity: 0.5;
-					filter: grayscale(0.3);
-					transform: scale(0.9);
+					filter: grayscale(0.8);
 
 					&.curr,
 					&:hover {
-						opacity: 1;
 						filter: unset;
-						transform: unset;
 					}
 				}
 			}

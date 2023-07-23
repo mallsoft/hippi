@@ -26,15 +26,13 @@
 			aspect-ratio: 1;
 			line-height: 0;
 
-			transition: transform $transition-speed-out;
-			transform-origin: left center;
-			transform: scale(0.9);
+			transition: transform $transition-speed-out $easing-jello;
+			transform-origin: center;
+			transform: scale(0.7);
 
-			filter: grayscale(0.3);
 			&:is(:hover, :focus) {
-				transition: transform $transition-speed-in;
+				transition: transform $transition-speed-in $easing-jello;
 				transform: unset;
-				filter: unset;
 			}
 		}
 	}

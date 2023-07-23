@@ -47,10 +47,13 @@
 	}
 
 	footer {
+		display: flex;
+		width: 100%;
 		a {
 			background-color: $color-pen-secondary;
 			color: $color-paper-secondary;
-			padding: 1rem;
+			padding: 0.5rem;
+			margin: 0.5rem;
 			border-radius: 4px;
 		}
 	}

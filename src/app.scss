@@ -1,5 +1,9 @@
 @import '@fontsource-variable/rubik';
 
+* {
+	box-sizing: border-box;
+}
+
 html {
 	font-size: clamp(10px, 3vw, 18px);
 }
