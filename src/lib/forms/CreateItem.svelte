@@ -1,20 +1,16 @@
 <script>
 	import { enhance } from '$app/forms';
-	import { onMount } from 'svelte';
 
 	const actionName = '?/createItem';
-	let autofocus = false;
 
-	onMount(() => {
-		autofocus = location.search === actionName;
-	});
+	export let autofocus = true;
 </script>
 
 <form use:enhance method="POST" action={actionName} autocomplete="off">
-	<!-- svelte-ignore a11y: a11y-autofocus -->
+	<!-- svelte-ignore a11y-autofocus -->
 	<input
+		{autofocus}
 		size="2"
-		autofocus
 		placeholder="Create new item"
 		type="text"
 		name="text"

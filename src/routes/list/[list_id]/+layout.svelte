@@ -21,7 +21,7 @@
 	</h1>
 
 	{#if data.list?.type !== '' && supported[data.list?.type]}
-		<CreateItem />
+		<CreateItem autofocus={$page.route.id === '/list/[list_id]'} />
 		<svelte:component this={supported[data.list?.type]} items={data.list?.items} />
 	{:else}
 		<span>List error</span>
