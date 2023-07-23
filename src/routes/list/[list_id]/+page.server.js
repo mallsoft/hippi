@@ -18,7 +18,7 @@ export async function load(ev) {
 	const curr = known ? JSON.parse(known) : [];
 	if (!curr.length || !curr.some((x) => x.id === id)) {
 		// todo handle namechang
-		curr.push({ id, title });
+		curr.unshift({ id, title });
 
 		const opts = {};
 		let expiry = new Date();

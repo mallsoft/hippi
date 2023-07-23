@@ -1,4 +1,8 @@
-<form method="POST" action="?/createList" autocomplete="off">
+<script>
+	import { enhance } from '$app/forms';
+</script>
+
+<form use:enhance method="POST" action="?/createList" autocomplete="off">
 	<!-- <select name="type">
 		<option selected value="thumbs">👍👎</option>
 	</select> -->

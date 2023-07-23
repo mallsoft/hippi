@@ -4,7 +4,7 @@
 </script>
 
 <ul class="listylist">
-	{#each items as { text, state, id }}
+	{#each items as { text, state, id } (id)}
 		<li>
 			<div>
 				<SubmitHidden
@@ -57,21 +57,19 @@
 				line-break: anywhere;
 			}
 
-			& > div {
-				&:last-of-type {
-					display: flex;
-					gap: 0.5rem;
-					& > div {
-						opacity: 0.5;
-						filter: grayscale(1);
-						transform: scale(0.9);
+			& > div:last-of-type {
+				display: flex;
+				gap: 0.5rem;
+				& > div {
+					opacity: 0.5;
+					filter: grayscale(0.3);
+					transform: scale(0.9);
 
-						&.curr,
-						&:hover {
-							opacity: 1;
-							filter: unset;
-							transform: unset;
-						}
+					&.curr,
+					&:hover {
+						opacity: 1;
+						filter: unset;
+						transform: unset;
 					}
 				}
 			}

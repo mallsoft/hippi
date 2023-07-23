@@ -1,6 +1,6 @@
 <script>
 	import CreateList from '$lib/forms/CreateList.svelte';
-
+	import SubmitHidden from '$lib/forms/SubmitHidden.svelte';
 	export let data;
 </script>
 
@@ -9,12 +9,23 @@
 </svelte:head>
 
 <main>
-	<img src="/favicon.svg" alt="" />
 	<CreateList />
 	{#if data.known?.length}
 		<ul class="listylist">
-			{#each data.known as { title, id }}
-				<li><a href="/list/{id}">{title}</a></li>
+			{#each data.known as { title, id } (id)}
+				<li>
+					<a href="/list/{id}">
+						{title}
+					</a>
+					<div>
+						<SubmitHidden
+							action="forgetList"
+							hiddenData={{ id }}
+							submitText="🗲"
+							submitTitle="Forget list: {title}"
+						/>
+					</div>
+				</li>
 			{/each}
 		</ul>
 	{/if}
@@ -22,14 +33,20 @@
 
 <style lang="scss">
 	main {
-		@include baseMain;
+		@include pageMain;
 	}
 
 	li a {
+		display: block;
 		font-size: 4rem;
+		font-weight: 500;
+
+		width: 100%;
 	}
 
-	img {
-		height: 2rem;
+	li {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
 	}
 </style>

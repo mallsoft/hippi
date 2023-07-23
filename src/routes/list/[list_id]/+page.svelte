@@ -14,7 +14,9 @@
 
 <main>
 	<h1>
-		<a href="/">{data.list?.title}</a>
+		<a href="/">
+			{data.list?.title}
+		</a>
 	</h1>
 
 	{#if data.list?.type !== '' && supported[data.list?.type]}
@@ -28,6 +30,9 @@
 </main>
 
 <style lang="scss">
+	h1 {
+		font-size: 4rem;
+	}
 	pre {
 		font-size: 0.8rem;
 		background: gray;
@@ -35,6 +40,6 @@
 		padding: 1rem;
 	}
 	main {
-		@include baseMain;
+		@include pageMain;
 	}
 </style>

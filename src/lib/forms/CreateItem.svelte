@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
 	import { onMount } from 'svelte';
 
 	const actionName = '?/createItem';
@@ -9,7 +10,7 @@
 	});
 </script>
 
-<form method="POST" action={actionName} autocomplete="off">
+<form use:enhance method="POST" action={actionName} autocomplete="off">
 	<!-- svelte-ignore a11y: a11y-autofocus -->
 	<input
 		size="2"
