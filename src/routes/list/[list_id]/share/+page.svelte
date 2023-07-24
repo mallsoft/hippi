@@ -48,13 +48,13 @@
 				width: 100%;
 
 				border-radius: 4px;
-				box-shadow: 2rem 2rem 2rem -0.2rem rgba(0, 0, 0, 0.25);
+				box-shadow: 0.5rem 0.5rem 1rem -0.2rem rgba(0, 0, 0, 0.1);
 			}
 			& > :global(svg > path:first-of-type) {
-				fill: $color-paper-secondary;
+				fill: $color-pen-secondary;
 			}
 			& > :global(svg > path:last-of-type) {
-				stroke: $color-pen-secondary;
+				stroke: $color-paper-secondary;
 			}
 		}
 	}

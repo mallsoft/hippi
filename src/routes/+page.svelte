@@ -21,7 +21,7 @@
 						<SubmitHidden
 							action="forgetList"
 							hiddenData={{ id }}
-							submitText="F"
+							submitText="⨯"
 							submitTitle="Forget list: {title}"
 						/>
 					</div>

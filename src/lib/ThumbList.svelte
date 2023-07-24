@@ -10,7 +10,7 @@
 				<SubmitHidden
 					action="deleteItem"
 					hiddenData={{ id }}
-					submitText="✖"
+					submitText="⨯"
 					submitTitle="Delete item: {text}"
 				/>
 			</div>
@@ -48,27 +48,29 @@
 		gap: 1rem;
 		li {
 			display: flex;
-			align-items: center;
 			justify-content: space-between;
 			gap: 0.5rem;
+
 			& > p {
-				padding: 0.5rem;
-				width: 100%;
-				line-break: anywhere;
+				flex-grow: 1;
+				overflow-wrap: anywhere;
 			}
 
 			& > div:last-of-type {
+				height: max-content;
 				display: flex;
-				gap: 0.5rem;
-				& > div {
-					filter: grayscale(0.8);
 
-					&.curr,
-					&:hover {
+				& > div {
+					filter: grayscale(0.6) opacity(0.6);
+
+					&.curr {
 						filter: unset;
 					}
 				}
 			}
+
+			//
 		}
+		//
 	}
 </style>
