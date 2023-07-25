@@ -6,6 +6,9 @@
 
 html {
 	font-size: clamp(10px, 3vw, 18px);
+
+	scrollbar-color: $color-pen-secondary $color-paper-primary;
+	scrollbar-width: thin;
 }
 
 body {
@@ -56,13 +59,14 @@ h6 {
 
 form {
 	input {
-		border: none;
 		font-family: inherit;
 		font-size: inherit;
+		border: none;
 
 		padding: 0.5rem;
 		background-color: $color-paper-secondary;
 		color: $color-pen-secondary;
+		box-shadow: 0 0 3px -2px $color-pen-primary;
 
 		&[type='submit'],
 		&[type='button'],
@@ -81,9 +85,5 @@ form {
 		border: none;
 		background: none;
 		background-color: $color-paper-secondary;
-	}
-
-	fieldset {
-		border: none;
 	}
 }

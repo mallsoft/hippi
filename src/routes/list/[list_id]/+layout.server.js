@@ -1,6 +1,8 @@
 import { env } from '$env/dynamic/private';
 import { error } from '@sveltejs/kit';
 
+const setCookie = () => {};
+
 /** @type {import('./$types').LayoutLoad} */
 export async function load(ev) {
 	const res = await ev.fetch(`${env.PATHY_MC_PATH}/lists/${ev.params.list_id}`);
@@ -14,21 +16,18 @@ export async function load(ev) {
 	const list = await res.json();
 
 	const { id, title } = list;
-	const known = ev.cookies.get('KNOWN_LIST');
-	const curr = known ? JSON.parse(known) : [];
-	if (!curr.length || !curr.some((x) => x.id === id)) {
-		// todo handle namechang
-		curr.unshift({ id, title });
+	const cookie = ev.cookies.get('KNOWN_LIST');
+	let known_lists = cookie ? JSON.parse(cookie) : [];
 
-		const opts = {};
-		let expiry = new Date();
-		expiry.setFullYear(expiry.getFullYear() + 1);
+	known_lists = known_lists.filter((x) => x.id !== id);
+	known_lists.unshift({ id, title });
 
-		opts['path'] = '/';
-		opts['expires'] = expiry;
-
-		ev.cookies.set('KNOWN_LIST', JSON.stringify(curr), opts);
-	}
+	let expires = new Date();
+	expires.setFullYear(expires.getFullYear() + 1);
+	ev.cookies.set('KNOWN_LIST', JSON.stringify(known_lists), {
+		path: '/',
+		expires
+	});
 
 	list.items.sort((a, b) => {
 		const sumA = a.id + a.sortIndex;

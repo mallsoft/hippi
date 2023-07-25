@@ -1,11 +1,13 @@
 <script>
+	import { flip } from 'svelte/animate';
+	import { backOut } from 'svelte/easing';
 	import SubmitHidden from '$lib/forms/SubmitHidden.svelte';
 	export let items = [];
 </script>
 
-<ul class="listylist">
+<ul>
 	{#each items as { text, state, id } (id)}
-		<li>
+		<li animate:flip={{ delay: 150, duration: 250, easing: backOut }}>
 			<div>
 				<SubmitHidden
 					action="deleteItem"
@@ -51,9 +53,13 @@
 			justify-content: space-between;
 			gap: 0.5rem;
 
+			background-color: $color-paper-primary;
+			border-radius: 4px;
+
 			& > p {
 				flex-grow: 1;
 				overflow-wrap: anywhere;
+				line-height: 1.15;
 			}
 
 			& > div:last-of-type {
@@ -61,6 +67,7 @@
 				display: flex;
 
 				& > div {
+					transition: filter $transition-speed-in;
 					filter: grayscale(0.6) opacity(0.6);
 
 					&.curr {

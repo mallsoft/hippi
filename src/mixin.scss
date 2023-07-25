@@ -1,0 +1,27 @@
+@mixin pageMain {
+	width: 100%;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	flex-grow: 1;
+
+	border-radius: 4px;
+	padding: 1rem;
+	margin: 2rem 8px;
+}
+
+@mixin formNewEntry {
+	form {
+		font-size: 2.2rem;
+		display: flex;
+		gap: 1rem;
+	}
+	input {
+		border-radius: 4px;
+		flex-grow: 6;
+		&[type='submit'] {
+			flex-grow: 1;
+		}
+	}
+}
