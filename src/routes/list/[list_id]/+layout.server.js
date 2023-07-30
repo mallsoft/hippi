@@ -1,11 +1,12 @@
 import { env } from '$env/dynamic/private';
 import { error } from '@sveltejs/kit';
+import { sortList_inPlace } from './list_utils';
 
 const setCookie = () => {};
 
 /** @type {import('./$types').LayoutLoad} */
 export async function load(ev) {
-	const res = await ev.fetch(`${env.PATHY_MC_PATH}/lists/${ev.params.list_id}`);
+	const res = await ev.fetch(`${env.PATHY_MC_PATH}/api/lists/${ev.params.list_id}`);
 
 	if (res.status == 404) throw error(res.status, 'List not found ¯\\_(ツ)_/¯');
 	if (!res.ok) {
@@ -29,11 +30,9 @@ export async function load(ev) {
 		expires
 	});
 
-	list.items.sort((a, b) => {
-		const sumA = a.id + a.sortIndex;
-		const sumB = b.id + b.sortIndex;
-		return sumB - sumA;
-	});
+	sortList_inPlace(list);
 
-	return { list };
+	return {
+		list
+	};
 }

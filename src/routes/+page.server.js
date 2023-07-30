@@ -23,7 +23,7 @@ export const actions = {
 
 		if (!title) throw error(400, 'List title missing');
 
-		const res = await ev.fetch(`${env.PATHY_MC_PATH}/lists`, {
+		const res = await ev.fetch(`${env.PATHY_MC_PATH}/api/lists`, {
 			method: 'POST',
 			body: JSON.stringify({
 				title,
@@ -77,7 +77,7 @@ export const actions = {
 
 		console.log(new Date().toISOString(), 'List delete... ', listId);
 
-		await ev.fetch(`${env.PATHY_MC_PATH}/lists/${listId}`, {
+		await ev.fetch(`${env.PATHY_MC_PATH}/api/lists/${listId}`, {
 			method: 'DELETE'
 		});
 

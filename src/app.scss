@@ -75,7 +75,8 @@ form {
 		padding: 0.5rem;
 		background-color: $color-paper-secondary;
 		color: $color-pen-secondary;
-		box-shadow: 0 0 3px -2px $color-pen-primary;
+
+		box-shadow: 1px 1px 3px -1px $color-pen-primary;
 
 		&::placeholder {
 			opacity: 0.75;

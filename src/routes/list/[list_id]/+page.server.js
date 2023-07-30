@@ -8,7 +8,7 @@ export const actions = {
 		const state = data.get('state');
 		console.log(new Date().toISOString(), 'Item create...', text, state);
 
-		await fetch(`${env.PATHY_MC_PATH}/lists/${ev.params.list_id}/items`, {
+		await fetch(`${env.PATHY_MC_PATH}/api/lists/${ev.params.list_id}/items`, {
 			method: 'POST',
 			body: JSON.stringify({ text, state }),
 			headers: {
@@ -25,7 +25,7 @@ export const actions = {
 
 		console.log(new Date().toISOString(), 'Item delete... ', ev.params.list_id, itemId);
 
-		await ev.fetch(`${env.PATHY_MC_PATH}/lists/${ev.params.list_id}/items/${itemId}`, {
+		await ev.fetch(`${env.PATHY_MC_PATH}/api/lists/${ev.params.list_id}/items/${itemId}`, {
 			method: 'DELETE'
 		});
 
@@ -39,7 +39,7 @@ export const actions = {
 
 		console.log(new Date().toISOString(), 'Set item emoji... ', itemId, emoji);
 
-		await ev.fetch(`${env.PATHY_MC_PATH}/lists/${ev.params.list_id}/items/${itemId}`, {
+		await ev.fetch(`${env.PATHY_MC_PATH}/api/lists/${ev.params.list_id}/items/${itemId}`, {
 			method: 'PUT',
 			body: JSON.stringify({ state: emoji }),
 			headers: {
