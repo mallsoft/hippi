@@ -19,10 +19,7 @@
 		display: contents;
 
 		input[type='submit'] {
-			border-radius: 4px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			font-size: 2rem;
 			aspect-ratio: 1;
 			line-height: 0;
 

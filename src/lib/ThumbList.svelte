@@ -12,7 +12,7 @@
 				<SubmitHidden
 					action="deleteItem"
 					hiddenData={{ id }}
-					submitText="⨯"
+					submitText="✕"
 					submitTitle="Delete item: {text}"
 				/>
 			</div>
@@ -59,7 +59,6 @@
 			& > p {
 				flex-grow: 1;
 				overflow-wrap: anywhere;
-				line-height: 1.15;
 			}
 
 			& > div:last-of-type {
