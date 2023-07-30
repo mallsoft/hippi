@@ -58,7 +58,14 @@ h6 {
 }
 
 form {
-	input {
+	[type='submit'],
+	[type='button'],
+	[type='reset'] {
+		cursor: pointer;
+	}
+
+	input,
+	button {
 		font-family: inherit;
 		font-size: inherit;
 		border: none;
@@ -67,12 +74,6 @@ form {
 		background-color: $color-paper-secondary;
 		color: $color-pen-secondary;
 		box-shadow: 0 0 3px -2px $color-pen-primary;
-
-		&[type='submit'],
-		&[type='button'],
-		&[type='reset'] {
-			cursor: pointer;
-		}
 
 		&::placeholder {
 			opacity: 0.75;

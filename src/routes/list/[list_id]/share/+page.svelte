@@ -13,7 +13,8 @@
 	});
 </script>
 
-<a data-sveltekit-noscroll href="/list/{$page.params.list_id}">
+<!-- svelte-ignore a11y-autofocus -->
+<a data-sveltekit-noscroll href="/list/{$page.params.list_id}" autofocus>
 	<div>
 		{@html data.qr}
 	</div>
@@ -25,6 +26,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
+		z-index: 99;
 		width: 100%;
 		height: 100%;
 
