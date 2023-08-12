@@ -21,5 +21,7 @@
 </form>
 
 <style lang="scss">
-	@include formNewEntry;
+	form {
+		@include formNewEntry;
+	}
 </style>

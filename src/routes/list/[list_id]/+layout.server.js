@@ -2,8 +2,6 @@ import { env } from '$env/dynamic/private';
 import { error } from '@sveltejs/kit';
 import { sortList_inPlace } from './list_utils';
 
-const setCookie = () => {};
-
 /** @type {import('./$types').LayoutLoad} */
 export async function load(ev) {
 	const res = await ev.fetch(`${env.PATHY_MC_PATH}/api/lists/${ev.params.list_id}`);

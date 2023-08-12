@@ -18,19 +18,7 @@ export const actions = {
 
 		return {};
 	},
-	deleteItem: async (ev) => {
-		const data = await ev.request.formData();
 
-		const itemId = data.get('id');
-
-		console.log(new Date().toISOString(), 'Item delete... ', ev.params.list_id, itemId);
-
-		await ev.fetch(`${env.PATHY_MC_PATH}/api/lists/${ev.params.list_id}/items/${itemId}`, {
-			method: 'DELETE'
-		});
-
-		return {};
-	},
 	setEmoji: async (ev) => {
 		const data = await ev.request.formData();
 

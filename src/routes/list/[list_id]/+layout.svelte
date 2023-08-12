@@ -13,9 +13,14 @@
 	<title>{data.list?.title}</title>
 </svelte:head>
 
+<header>
+	<a href="/" aria-label="Lists">⮨</a>
+	<a data-sveltekit-noscroll href="/list/{$page.params.list_id}/share">QR</a>
+</header>
+
 <main>
 	<h1>
-		<a href="/">
+		<a data-sveltekit-noscroll href="{$page.params.list_id}/listedit">
 			{data.list?.title}
 		</a>
 	</h1>
@@ -33,10 +38,6 @@
 
 <slot />
 
-<footer>
-	<a data-sveltekit-noscroll href="/list/{$page.params.list_id}/share">QR</a>
-</footer>
-
 <style lang="scss">
 	h1 {
 		overflow-wrap: anywhere;
@@ -49,13 +50,15 @@
 	}
 	main {
 		@include pageMain;
+		margin-top: 8px;
 	}
 
-	footer {
+	header {
 		display: flex;
+		justify-content: space-between;
 		width: 100%;
+
 		a {
-			background-color: $color-pen-secondary;
 			color: $color-paper-secondary;
 			padding: 0.5rem;
 			margin: 0.5rem;

@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import { flip } from 'svelte/animate';
 	import { backOut } from 'svelte/easing';
 	import SubmitHidden from '$lib/forms/SubmitHidden.svelte';
@@ -8,20 +9,16 @@
 <ul>
 	{#each items as { text, state, id } (id)}
 		<li animate:flip={{ delay: 150, duration: 250, easing: backOut }}>
-			<div>
-				<SubmitHidden
-					action="deleteItem"
-					hiddenData={{ id }}
-					submitText="✕"
-					submitTitle="Delete item: {text}"
-				/>
-			</div>
-			<p>{text}</p>
+			<a href="/list/{$page.params.list_id}/{id}" title="edit list entry">
+				{text}
+			</a>
+
 			<div>
 				{#each ['👍', '👎'] as emoji}
 					<div class:curr={state === emoji}>
 						{#if state !== emoji}
 							<SubmitHidden
+								square
 								action="setEmoji"
 								hiddenData={{ id, emoji }}
 								submitText={emoji}
@@ -29,6 +26,7 @@
 							/>
 						{:else}
 							<SubmitHidden
+								square
 								action="setEmoji"
 								hiddenData={{ id, emoji: '' }}
 								submitText={emoji}
@@ -56,7 +54,7 @@
 			background-color: $color-paper-primary;
 			border-radius: 4px;
 
-			& > p {
+			& > a {
 				flex-grow: 1;
 				overflow-wrap: anywhere;
 			}

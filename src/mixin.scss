@@ -12,11 +12,9 @@
 }
 
 @mixin formNewEntry {
-	form {
-		font-size: 2.2rem;
-		display: flex;
-		gap: 1rem;
-	}
+	font-size: 2.2rem;
+	display: flex;
+	gap: 1rem;
 	input {
 		flex-grow: 6;
 		&[type='submit'] {
