@@ -2,10 +2,11 @@
 	import { enhance } from '$app/forms';
 	import SubmitHidden from '$lib/forms/SubmitHidden.svelte';
 	export let data;
-
 </script>
 
 <section>
+	<h2>List</h2>
+
 	<form use:enhance method="POST" action="?/updateListName" autocomplete="off">
 		<input
 			value={data.list.title}
@@ -35,20 +36,13 @@
 	}
 
 	section {
-		background-color: $color-pen-secondary;
-		color: $color-paper-secondary;
+		@include modalSection;
 
-		border-radius: 4px;
-		box-shadow: 0.5rem 0.5rem 1rem -0.2rem rgba(0, 0, 0, 0.2);
-
-		padding: 1rem;
-		max-width: 600px;
-		width: 100%;
-
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		min-height: 200px;
+		h2 {
+			font-size: 1.75rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 
 		div {
 			margin-top: auto;

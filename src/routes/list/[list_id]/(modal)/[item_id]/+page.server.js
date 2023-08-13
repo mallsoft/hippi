@@ -14,7 +14,7 @@ export async function load(ev) {
 	}
 
 	const item = await res.json();
-	console.log(item);
+
 	return { item };
 }
 

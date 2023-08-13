@@ -8,7 +8,9 @@
 </svelte:head>
 
 <main>
-	<CreateList />
+	<div>
+		<CreateList />
+	</div>
 	{#if data.known?.length}
 		<ul>
 			{#each data.known as { title, id } (id)}
@@ -25,12 +27,19 @@
 <style lang="scss">
 	main {
 		@include pageMain;
+
+		div {
+			margin-top: 6rem;
+			margin-bottom: 2rem;
+		}
 	}
 
 	ul {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 2rem;
+
+		line-height: 0.9;
 	}
 	li {
 		display: flex;

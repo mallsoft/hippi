@@ -42,10 +42,9 @@
 
 <style lang="scss">
 	ul {
-		margin: 1rem 0;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.5rem;
 		li {
 			display: flex;
 			justify-content: space-between;
