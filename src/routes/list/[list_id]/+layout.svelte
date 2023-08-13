@@ -14,12 +14,10 @@
 </svelte:head>
 
 <header>
-	<a href="/" title="List index">◀</a>
-	<h1>
-		<a data-sveltekit-noscroll href="{$page.params.list_id}/listedit">
-			{data.list?.title}
-		</a>
-	</h1>
+	<a href="/" title="List index">❮</a>
+	<a data-sveltekit-noscroll href="{$page.params.list_id}/listedit">
+		{data.list?.title}
+	</a>
 	<a data-sveltekit-noscroll title="Share QR Code" href="/list/{$page.params.list_id}/share">QR</a>
 </header>
 
@@ -38,13 +36,6 @@
 <slot />
 
 <style lang="scss">
-	pre {
-		font-size: 0.8rem;
-		background: gray;
-		color: white;
-		padding: 1rem;
-	}
-
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -54,18 +45,21 @@
 		a {
 			color: $color-paper-secondary;
 			padding: 1rem;
-			border-radius: 4px;
+			line-height: 0.9;
+			display: flex;
+			align-items: center;
+			min-height: 4.7rem;
+		}
+		a:not(:nth-of-type(2)) {
+			justify-content: center;
+			aspect-ratio: 1;
 		}
 
-		h1 {
-			a {
-				padding: 0;
-			}
-			font-size: 2rem;
-			overflow-wrap: anywhere;
+		a:nth-of-type(2) {
+			font-weight: bold;
 
-			line-height: 0.9;
-			max-width: calc(900px - 3rem);
+			overflow-wrap: anywhere;
+			max-width: calc(900px);
 			width: 100%;
 			@media (width > 1100px) {
 				font-size: 2.5rem;
@@ -81,5 +75,12 @@
 		position: sticky;
 		top: 1rem;
 		z-index: 2;
+	}
+
+	pre {
+		font-size: 0.8rem;
+		background: gray;
+		color: white;
+		padding: 1rem;
 	}
 </style>
