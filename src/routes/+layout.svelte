@@ -15,5 +15,8 @@
 		font-size: 2rem;
 
 		min-height: 100%;
+
+		max-width: 1600px;
+		margin: 0 auto;
 	}
 </style>
