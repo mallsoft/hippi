@@ -16,6 +16,7 @@
 
 		min-height: 100%;
 
+		min-width: 220px;
 		max-width: 1600px;
 		margin: 0 auto;
 	}
