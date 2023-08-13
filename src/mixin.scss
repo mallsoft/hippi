@@ -29,14 +29,14 @@
 	min-height: 300px;
 
 	// ...fake x...
-	position: relative;
-	&::after {
-		pointer-events: none;
-		position: absolute;
-		content: '🞬';
-		right: 0;
-		bottom: 100%;
-	}
+	// position: relative;
+	// &::after {
+	// 	pointer-events: none;
+	// 	position: absolute;
+	// 	content: '🞬';
+	// 	right: 0;
+	// 	bottom: 100%;
+	// }
 }
 
 @mixin formNewEntry {
