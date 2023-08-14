@@ -11,7 +11,7 @@
 			submitText="Forget"
 			submitTitle="Forget list: {data.list.title}"
 		/>
-		<h2>Edit List - <span>{data.list.title}</span></h2>
+		<h2><span>Edit list </span><span>{data.list.title}</span></h2>
 	</div>
 	<div>
 		<form method="POST" action="?/updateListName" autocomplete="off">

@@ -34,9 +34,11 @@
 		@include modalCell;
 		display: flex;
 		gap: 1rem;
+		position: relative;
 
 		&:not(:first-child) {
 			flex-direction: column;
+			z-index: 1;
 		}
 		&:first-child {
 			font-size: 1.2rem;
@@ -48,8 +50,12 @@
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
-				span {
-					color: $color-pen-primary;
+				span:first-of-type {
+					position: absolute;
+					bottom: calc(100% + 0.5rem);
+					left: 0;
+					color: $color-pen-secondary;
+					text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 				}
 			}
 		}

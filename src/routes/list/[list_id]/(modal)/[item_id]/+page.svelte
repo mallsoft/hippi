@@ -11,7 +11,7 @@
 			submitText="Delete"
 			submitTitle="Delete item: {data.item.text}"
 		/>
-		<h2>List item - <span>{data.item.text}</span></h2>
+		<h2><span>Edit list item </span><span>{data.item.text}</span></h2>
 	</div>
 	<div>
 		<form method="POST" action="?/updateItemText" autocomplete="off">
