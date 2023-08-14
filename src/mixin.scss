@@ -7,36 +7,54 @@
 
 	border-radius: 4px;
 	padding: 1rem;
-	margin: 2rem 0;
-	margin-top: 0;
+
+	margin-bottom: 4rem;
+	margin-top: 2rem;
 }
 
-@mixin modalSection {
+@mixin modalCell {
 	background-color: $color-pen-secondary;
 	color: $color-paper-secondary;
-
+	padding: 1rem;
 	border-radius: 4px;
 	box-shadow: 0.5rem 0.5rem 1rem -0.2rem rgba(0, 0, 0, 0.2);
+	pointer-events: all;
+}
 
-	padding: 1rem;
-	margin: 1rem;
-	max-width: 900px;
-	width: 100%;
-
+@mixin modal {
+	pointer-events: none;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
-	min-height: 300px;
+	margin: 1rem;
+	max-width: 800px;
+	width: 100%;
+	gap: 0.5rem;
 
-	// ...fake x...
-	// position: relative;
-	// &::after {
-	// 	pointer-events: none;
-	// 	position: absolute;
-	// 	content: '🞬';
-	// 	right: 0;
-	// 	bottom: 100%;
-	// }
+	& > * {
+		@include modalCell;
+		display: flex;
+		gap: 1rem;
+
+		&:not(:first-child) {
+			flex-direction: column;
+		}
+		&:first-child {
+			font-size: 1.2rem;
+			margin-right: auto;
+			max-width: 100%;
+			align-items: center;
+			h2 {
+				font-size: 1.125em;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				span {
+					color: $color-pen-primary;
+				}
+			}
+		}
+		//
+	}
 }
 
 @mixin formNewEntry {

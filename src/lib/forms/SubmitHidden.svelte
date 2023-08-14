@@ -20,7 +20,7 @@
 		display: contents;
 
 		input[type='submit'] {
-			font-size: 2rem;
+			font-size: inherit;
 
 			&.square {
 				aspect-ratio: 1;

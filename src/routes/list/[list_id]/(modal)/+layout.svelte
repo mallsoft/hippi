@@ -61,10 +61,10 @@
 		width: 100%;
 		height: 100%;
 
-		background-color: rgba($color-paper-primary, 0.3);
+		background-color: rgba($color-pen-primary, 0.2);
 
-		backdrop-filter: blur(3px);
-		-webkit-backdrop-filter: blur(3px);
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
 
 		display: flex;
 		align-items: center;

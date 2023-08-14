@@ -15,9 +15,11 @@
 
 <header>
 	<a href="/" title="List index">❮</a>
-	<a data-sveltekit-noscroll href="{$page.params.list_id}/listedit">
-		{data.list?.title}
-	</a>
+	<h1>
+		<a data-sveltekit-noscroll href="{$page.params.list_id}/listedit">
+			{data.list?.title}
+		</a>
+	</h1>
 	<a data-sveltekit-noscroll title="Share QR Code" href="/list/{$page.params.list_id}/share">QR</a>
 </header>
 
@@ -50,19 +52,21 @@
 			align-items: center;
 			min-height: 4.7rem;
 		}
-		a:not(:nth-of-type(2)) {
+		& > a {
 			justify-content: center;
 			aspect-ratio: 1;
 		}
 
-		a:nth-of-type(2) {
-			font-weight: bold;
-
-			overflow-wrap: anywhere;
+		h1 {
 			max-width: calc(900px);
 			width: 100%;
-			@media (width > 1100px) {
-				font-size: 2.5rem;
+			font-size: inherit;
+			a {
+				overflow-wrap: anywhere;
+
+				@media (width > 1100px) {
+					font-size: 2.5rem;
+				}
 			}
 		}
 	}
