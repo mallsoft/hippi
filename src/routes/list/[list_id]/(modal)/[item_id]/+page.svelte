@@ -39,5 +39,21 @@
 
 	article {
 		@include modal;
+
+		section {
+			@include modalCell;
+			&:nth-of-type(1) {
+				margin-right: auto;
+				max-width: 100%;
+				align-items: center;
+				flex-direction: row;
+				h3 {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					color: $color-pen-primary;
+				}
+			}
+		}
 	}
 </style>
