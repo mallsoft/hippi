@@ -3,17 +3,20 @@
 	export let data;
 </script>
 
-<section>
-	<div>
+<article>
+	<h2>Edit list item</h2>
+
+	<section>
 		<SubmitHidden
 			action="deleteItem"
 			hiddenData={{ id: data.item.id }}
 			submitText="Delete"
 			submitTitle="Delete item: {data.item.text}"
 		/>
-		<h2><span>Edit list item </span><span>{data.item.text}</span></h2>
-	</div>
-	<div>
+		<h3>{data.item.text}</h3>
+	</section>
+	<section>
+		<h3>Update item name</h3>
 		<form method="POST" action="?/updateItemText" autocomplete="off">
 			<input
 				value={data.item.text}
@@ -26,15 +29,15 @@
 			/>
 			<input type="submit" value="Save" />
 		</form>
-	</div>
-</section>
+	</section>
+</article>
 
 <style lang="scss">
 	form {
 		@include formNewEntry;
 	}
 
-	section {
+	article {
 		@include modal;
 	}
 </style>
